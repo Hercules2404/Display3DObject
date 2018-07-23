@@ -1,0 +1,53 @@
+﻿<Window x:Class="Display3DModel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:helix="http://helix-toolkit.org/wpf"
+        Title="Display 3D Object File" Icon="E:\PNG and ICON Image\3d-icon-0.ico" Background="White">
+    <Grid>
+        <!--Grid.ColumnDefinitions>
+            <ColumnDefinition Width="374*"/>
+            <ColumnDefinition Width="71*"/>
+            <ColumnDefinition Width="347*"/>
+        </-->
+        <helix:HelixViewport3D x:Name="viewPort3d" ZoomExtentsWhenLoaded="true" Margin="0,20,0,4" ShowFrameRate="True" ViewCubeTopText="T" Status="" SubTitle="" Title="" FontFamily="Consolas" RenderTransformOrigin="0.5,0.5" ViewCubeBackText="Bh" ViewCubeBottomText="Bt" >
+            <helix:HelixViewport3D.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </helix:HelixViewport3D.RenderTransform>
+
+            <!-- Remember to add light to the scene -->
+            <helix:DefaultLights/>
+        </helix:HelixViewport3D>
+
+        <!--Menu bar-->
+        <Menu x:Name="menu" Height="20" VerticalAlignment="Top" Background="White" HorizontalAlignment="Left" Width="756" Margin="4,0,0,0" RenderTransformOrigin="0.5,0.5">
+            <MenuItem Header="File" ToolTip="File Configuration" >
+                <MenuItem Header="Open File..." Click="MenuItem_Open" ToolTip="Open 3D File" />
+                <MenuItem Header="Location Directory" Click="MenuItem_Location" ToolTip="Open 3D File Location" />
+                <Separator />
+                <MenuItem Header="Exit" Click="MenuItem_Click_1" ToolTip="Close program" />
+            </MenuItem>
+            <MenuItem Header="Setting" ToolTip="Configuration For Camera Viewer">
+                <MenuItem Header="Default Camera Position" Click="MenuItem_DefPosition" ToolTip="Set 3D file to original view" />
+                <Separator />
+                <MenuItem Header="Show Camera Information" ToolTip="Show Camera Information" Click="MenuItem_CameraInfo" IsCheckable="True" />
+                <MenuItem Header="Show Camera Target" ToolTip="Show Camera Target When Moving 3D Object" Click="MenuItem_CameraTarget" IsCheckable="True" IsChecked="True"/>
+                <MenuItem Header="Show Coordinate System" ToolTip="Show Coordinate System" Click="MenuItem_CoordinateSystem" IsCheckable="True"/>
+                <MenuItem Header="Show Field Of View" ToolTip="Show Field Of View" Click="MenuItem_FieldOfView" IsCheckable="True"/>
+                <MenuItem Header="Show Frame Rate" ToolTip="Show Frame Rate" Click="MenuItem_FrameRate" IsCheckable="True" IsChecked="True"/>
+                <MenuItem Header="Show Triangle Count Information" ToolTip="Show Triangle Count Information" Click="MenuItem_TriangleCountInfo" IsCheckable="True"/>
+                <MenuItem Header="Show View Cube" ToolTip="Show View Cube" Click="MenuItem_ViewCube" IsCheckable="True" IsChecked="True"/>
+            </MenuItem>
+            <MenuItem Header="Help" ToolTip="More Information" >
+                <MenuItem Header="What's character mean in cube?" ToolTip="Show help about character in cube" Click="MenuItem_CharacterCubeHelp" />
+                <Separator />
+                <MenuItem Header="About" Click="MenuItem_About" ToolTip="About Program" />
+            </MenuItem>
+
+        </Menu>
+    </Grid>
+</Window>
